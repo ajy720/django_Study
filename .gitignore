@@ -267,5 +267,6 @@ fabric.properties
 
 /venv
 .idea
+db.sqlite3
 
 # End of https://www.gitignore.io/api/django,python,pycharm,visualstudiocode
