@@ -260,7 +260,7 @@ fabric.properties
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
+ㅌ2
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
@@ -268,5 +268,7 @@ fabric.properties
 /venv
 .idea
 db.sqlite3
+
+migrations/
 
 # End of https://www.gitignore.io/api/django,python,pycharm,visualstudiocode
