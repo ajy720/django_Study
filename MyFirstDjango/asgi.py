@@ -1,5 +1,5 @@
 """
-ASGI config for my_site_prj project.
+ASGI config for MyFirstDjango project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'my_site_prj.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'MyFirstDjango.settings')
 
 application = get_asgi_application()
