@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'share/_navbar.html'%}
+<h1>
+    Hello Django!
+</h1>
+
+<a href="{% url "lovely:first" %}">First</a>
+<a href="{% url "lovely:second" %}">Second</a>
+<a href="{% url "lovely:third" %}">Third</a>
+{%  endblock %}
