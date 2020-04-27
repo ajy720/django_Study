@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <h1>
+        글 수정하기
+    </h1>
+    <form action="{% url "posts:update" post.id %}" method="POST"> <!-- 수정 용 -->
+        {%  include 'posts/_form.html' with form=form btn_value="글 수정하기"%}
+        <!-- 중복 부분 _form.html으로 치환, with 뒤에 인자 넘겨주기 -->
+    </form>
+</div>
+{% endblock %}
