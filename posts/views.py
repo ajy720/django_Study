@@ -24,3 +24,14 @@ def create(request):
             form.save()
 
         return redirect("main")
+
+
+def show(request, post_id):  # 방법 2. 주소에서 값 전달 -> urls.py에서 post_id 전달해준거 받기
+    # 방법 1
+    # post_id = request.GET.get("post_id")  # 받은 url에서 post_id라는 인자 값 얻고
+    post = Post.objects.get(
+        id=post_id
+    )  # Post 객체들 중에 해당 post_id를 id(Primary key)로 갖고 있는 친구를 찾아서
+    context = {"post": post}  # context에 딕셔너리 형태로 넣어주고
+
+    return render(request, "posts/show.html", context)  # 템플릿에 전달하면 해당 html(템플릿) 안에서 출력
