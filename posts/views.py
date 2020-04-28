@@ -15,7 +15,7 @@ def main(request):
 
 def new(request):
     context = {
-        "form": PostForm(),
+        "form": PostForm(),  # PostForm 양식 전달
     }
 
     return render(request, "posts/new.html", context)
@@ -23,7 +23,7 @@ def new(request):
 
 def create(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST)  # POSTFORM이라는 모델에 전달받은 객체 넣고 생성
         if form.is_valid():
             form.save()
 
@@ -63,3 +63,10 @@ def update(request, post_id):
             form.save()
 
         return redirect("posts:show", post_id)  # 게시글 화면으로 리다이렉트
+
+
+def delete(request, post_id):
+    if request.method == "POST":
+        post = Post.objects.get(id=post_id)
+        post.delete()  # 삭제하는 ORM
+        return redirect("main")
