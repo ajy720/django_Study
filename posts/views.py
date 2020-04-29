@@ -25,7 +25,9 @@ def new(request):
 
 @require_POST  # 데코레이터(메서드를 꾸며주는 역할)로 애초에 POST 방식의 값만 받도록 설정
 def create(request):
-    form = PostForm(request.POST)  # POSTFORM이라는 모델에 전달받은 객체 넣고 생성
+    form = PostForm(
+        request.POST, request.FILES or None  # PostForm에 넣어줄 때도 FILES 안에 들어있는 이미지도 함께
+    )  # POSTFORM이라는 모델에 전달받은 객체 넣고 생성
     if form.is_valid():
         form.save()
 
@@ -62,7 +64,9 @@ def edit(request, post_id):
 def update(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     form = PostForm(
-        request.POST, instance=post
+        request.POST,
+        request.FILES or None,  # PostForm에 넣어줄 때도 FILES 안에 들어있는 이미지도 함께
+        instance=post,
     )  # instance 속성을 붙여 줌으로써 새로 생성이 아닌 있는 인스턴스를 수정
     if form.is_valid():
         form.save()

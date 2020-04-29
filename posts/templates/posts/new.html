@@ -3,7 +3,7 @@
     <h1>
         새로운 글 작성하기
     </h1>
-    <form action="{% url "posts:create"%}" method="POST">
+    <form action="{% url "posts:create"%}" method="POST" enctype="multipart/form-data"> <!-- enctype 중요! 없으면 파일 데이터 제대로 안 감. 이게 없으면 request.POST만 간다.-->
       {%  include 'posts/_form.html' with form=form btn_value="글 작성하기"%}
     </form>
 </div>

@@ -11,6 +11,7 @@ class PostAdmin(admin.ModelAdmin):
         "_type",
         "title",
         "view_count",
+        "image",
         "created_at",
         "updated_at",
     )

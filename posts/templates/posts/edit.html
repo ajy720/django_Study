@@ -3,7 +3,7 @@
     <h1>
         글 수정하기
     </h1>
-    <form action="{% url "posts:update" post.id %}" method="POST"> <!-- 수정 용 -->
+    <form action="{% url "posts:update" post.id %}" method="POST" enctype="multipart/form-data"> <!-- enctype 중요! 없으면 파일 데이터 제대로 안 감. 이게 없으면 request.POST만 간다.--> <!-- 수정 용 -->
         {%  include 'posts/_form.html' with form=form btn_value="글 수정하기"%}
         <!-- 중복 부분 _form.html으로 치환, with 뒤에 인자 넘겨주기 -->
     </form>

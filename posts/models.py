@@ -21,6 +21,12 @@ class Post(models.Model):
 
     _type = models.PositiveSmallIntegerField(choices=POST_TYPES, verbose_name="게시글 종류")
 
+    image = models.ImageField(
+        upload_to="posts/img",
+        default="posts/default/default_img.jpg",
+        verbose_name="이미지",
+    )
+
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="등록 시간")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="수정 시간")
 
