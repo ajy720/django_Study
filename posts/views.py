@@ -42,6 +42,9 @@ def show(request, post_id):  # 방법 2. 주소에서 값 전달 -> urls.py에�
         "post": post,
     }  # context에 딕셔너리 형태로 넣어주고
 
+    post.view_count += 1
+    post.save()  # 객체 저장
+
     return render(request, "posts/show.html", context)  # 템플릿에 전달하면 해당 html(템플릿) 안에서 출력
 
 
